@@ -20,12 +20,12 @@ http_get() {
 filename() {
   local version=$1
 
-  get_available_releases | \
-    grep ",$version," | \
-    head -n 1 | \
-    cut -d, -f9 | \
-    rev | \
-    cut -d/ -f1 | \
+  get_available_releases |
+    grep ",$version," |
+    head -n 1 |
+    cut -d, -f9 |
+    rev |
+    cut -d/ -f1 |
     rev
 }
 
@@ -33,9 +33,9 @@ get_available_releases() {
   local platform="$(platform)"
   local archname="$(archname)"
 
-  http_get 'https://raw.githubusercontent.com/skaji/rakudo-releases/main/rakudo-releases.v1.csv' | \
-    grep ,archive, | \
-    grep ,moar, | \
+  http_get 'https://raw.githubusercontent.com/skaji/rakudo-releases/main/rakudo-releases.v1.csv' |
+    grep ,archive, |
+    grep ,moar, |
     grep ",$platform,"
 }
 
