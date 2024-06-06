@@ -36,8 +36,7 @@ get_available_releases() {
   http_get 'https://raw.githubusercontent.com/skaji/rakudo-releases/main/rakudo-releases.v1.csv' | \
     grep ,archive, | \
     grep ,moar, | \
-    grep ",$platform," | \
-    grep ",$archname,"
+    grep ",$platform,"
 }
 
 platform() {
